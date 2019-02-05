@@ -1,39 +1,241 @@
 {% extends 'mysite/base.html' %}
 {% load static %}
 
+{% block css %}
+<style>
+/********************* Shopping Demo-4 **********************/
+/********************* Shopping Demo-4 **********************/
+.card:hover{
+    -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+box-shadow: 5px 5px 15px 5px #000000;
+}
+
+
+</style>
+
+{% endblock %}
+
 {% block content %}
-    <div class="container" style="margin-top: 100px">
-        <div class="card-deck">
-            <div class="card">
-                <img class="card-img-top" src="{% static 'mysite/images/unopinion.png' %}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Unopinion</h5>
-                    <p class="card-text">This is my startup whose aim is help Youtube content creators achieve success..</p>
-                    <p class="card-text">
-                        <small class="text-muted">www.unopinion.com</small>
-                    </p>
+
+<div class="container" style="margin-top:100px;">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">My
+      <small>Project</small>
+    </h1>
+
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{% url 'home' %}">Home</a>
+      </li>
+      <li class="breadcrumb-item active">Project</li>
+    </ol>
+
+    <!-- Image Header -->
+    <img class="img-fluid rounded mb-4" src="http://placehold.it/1200x300" alt="">
+
+    
+
+      
+   
+
+    <!-- /.row -->
+
+    <!--<div class="container" style="margin-top: 100px">-->
+        <!--&lt;!&ndash;<div class="card-deck">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="card">&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<img class="card-img-top" src="{% static 'mysite/images/unopinion.png' %}" alt="Card image cap">&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<div class="card-body">&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;<h5 class="card-title">{{ question.title  }}</h5>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="card-text">{{ question.description }}</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="card-text">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<small class="text-muted">www.unopinion.com</small>&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="card">&ndash;&gt;-->
+                <!--&lt;!&ndash;<img class="card-img-top" src="{% static 'mysite/images/firefight.jpg' %}" alt="Card image cap">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="card-body">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<h5 class="card-title">FireFight</h5>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="card-text">IOT Application to help firefighters. Includes Facial Tracking and Environment detection</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="card-text">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<small class="text-muted">Internet of Things</small>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="card">&ndash;&gt;-->
+                <!--&lt;!&ndash;<img class="card-img-top" src="{% static 'mysite/images/kupika.jpg' %}" alt="Card image cap">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="card-body">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<h5 class="card-title">Kupika</h5>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="card-text">Smart Container for Babies - IOT based Application and hardware</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="card-text">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<small class="text-muted">Android Developement</small>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--</div>-->
+
+<!-- Page Content -->
+{% comment %} <div class="container">
+
+
+
+
+		<!--<li class="head bg-primary" ><a class='a' href="">{{ question.title  }}</a></li>-->
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">My Works |
+      <small>Project</small>
+    </h1>
+
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="index.html">Home</a>
+      </li>
+      <li class="breadcrumb-item active">My Projects</li>
+    </ol>
+
+ {% if latest_question_list %}
+
+
+
+    <!-- Blog Post -->
+
+    <div class="card mb-4">
+{% for question in latest_question_list %}
+      <div class="card-body" style="margin-top: 20xp;">
+
+        <div class="row">
+          <div class="col-lg-6">
+
+            <a href="#">
+              <img class="img-fluid rounded" src="{{ question.image.url  }}" alt="" style="height: 200px; width: 500px;">
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <h2 class="card-title">{{ question.pk }} .{{ question.title  }}</h2>
+            <p class="card-text">{{ question.body }}
+                  <!-- Button trigger modal -->
+          <div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                   <a href="{% url 'post_detail' question.pk %}">Learn More </a>
+             </button></p><hr style="width: 100%">
+
+        </div>
+      </div>
+      <div class="card-footer text-muted" style="margin-top: 15px;">
+        Posted on {{ question.pub_date }} by
+        <a href="#">{{ question.by }}</a>
+      </div>
+            {% endfor %}
+    </div>
+
+
+
+
+
+{% else %}
+	<p>No polls are available.</p>
+{% endif %}
+
+
+
+
+  </div>
+
+
+
+
+</div> {% endcomment %}
+
+<form method = "GET" action =''>
+
+<div class="row">
+
+<div class="form-group col-4">
+  <input type="text" name='q' class="form-control" placeholder="Search Post" value =" {{ search_term}}" />
+</div>
+
+<div class="form-group col-2">
+<button type="submit" class="btn btn-primary " style="width: 150px;">Search</button>
+</div>
+</div>
+<form>
+
+
+<div class="row">
+        
+{% for post in contacts %}
+
+<div class="col-md-4 col-sm-6 animated fadeInUp delay-2s " style=" margin-top: 30px;">
+            
+                
+                <div class="product-content" >
+                    <div class="card  border-success " >
+                        <a href="{% url 'product_detail' post.pk %}"><img class="card-img-top" src="{{ post.image.url}}" alt="" style="height:210px;"></a>
+                    <h5 class="card-header text-left">Project: {{ post.pk}}</h5>
+                        <div class="card-body text-primary">
+                        <a href="{% url 'product_detail' post.pk %}">  <h5 class="card-title text-left text-dark"><i class="fa fa-link"></i>{{ post.title}}</h5></a><hr>
+                        <p class="card-text" style="height: 50px; overflow: scroll;">{{ post.body}}</p>
+                         </div>
+                    {% comment %} <h3 class="title"><a href="">{{ post.name}}</a></h3> {% endcomment %}
+                    <div class="card-footer text-muted " style="margin-top: 15px;">
+                            <span style="font-size: 12px;" >:{{ post.pub_date }}<span>
+                            
+                            {% comment %} <a href="#">{{ post.by }}</a> {% endcomment %}
+                            
+                            <span style="font-size: 14px; float: right;" class="text-primary" >by: {{ post.by }}<span>
+                            
+                    </div>
+                          
+                            {% comment %} <a href="#">{{ post.by }}</a> {% endcomment %}
+
+                   
                 </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="{% static 'mysite/images/firefight.jpg' %}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">FireFight</h5>
-                    <p class="card-text">IOT Application to help firefighters. Includes Facial Tracking and Environment detection</p>
-                    <p class="card-text">
-                        <small class="text-muted">Internet of Things</small>
-                    </p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="{% static 'mysite/images/kupika.jpg' %}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Kupika</h5>
-                    <p class="card-text">Smart Container for Babies - IOT based Application and hardware</p>
-                    <p class="card-text">
-                        <small class="text-muted">Android Developement</small>
-                    </p>
-                </div>
+            
             </div>
         </div>
-    </div>
+        
+ {% endfor %} 
+
+
+<div class="container" >
+
+<hr style="border-width: 5px; margin-bottom: 10px;">
+<div class="pagination" style ="margin: 0 auto; width 300px;">
+    <span class="step-links text-center" style ="margin: 0 auto; width 300px;">
+        {% if contacts.has_previous %}
+            <a href="?page=1" class="btn btn-danger">&laquo; First</a>
+            <a href="?page={{ contacts.previous_page_number }} &search = {{ search_term}}" class="btn btn-danger">Prev</a>
+        {% endif %}
+
+        
+        <span class="current btn btn-primary">
+            Page {{ contacts.number }}  of  {{ contacts.paginator.num_pages }}  
+        </span>
+        
+
+        {% if contacts.has_next %}
+            <a href="?page={{ contacts.next_page_number }} &search = {{ search_term}}" class="btn btn-success">Next</a> |
+            <a href="?page={{ contacts.paginator.num_pages }}" class="btn btn-success">Last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+</div>
+</div></div>
+</div>
+
+
+
+
+
 {% endblock %}
+

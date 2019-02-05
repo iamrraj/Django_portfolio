@@ -1,31 +1,148 @@
 {% extends 'mysite/base.html' %}
 
+{% load static %}
+
+
+{% block title %}
+    Posts
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'mysite/css/style.css' %}">
+{% endblock %}
+
 {% block content %}
-    <div class="container">
+<h1 class="mt-4 mb-3">Services
+      <small>Subheading</small>
+    </h1>
+
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{% url 'contact' %}">Home</a>
+      </li>
+      <li class="breadcrumb-item active">Contact</li>
+    </ol>
+ <div class="container">
+<section id="fact"  class="wow fadeIn">
+
+            <!--<div class="clearfix">-->
+          <!--<div class="img-container1 animated fadeRight wow delay-04s ">-->
+            <!--<img src="http://placehold.it/300x300" alt="Fjords" style="width:100%">-->
+          <!--</div>-->
+         <div class="section-header">
+             <div class="section-header">
+              <div class="container">
+
+             <div class="container-fluid" >
+                <h1 class="text-center">Contact Us</h1><br><br>
+                 <h1 class="text-center">Contact Us</h1>
+
+                 <hr style="border-top: 1px solid #000; width:50%; color: green">
+
+                <div class="row text-center" style="margin: 0 auto">
+                    <div class="col-sm-4 col-xs-6 first-box" style="font-weight: bolder">
+                        <h1><a href="tel:+48722750618"><i class="fa fa-phone "></i></a></span></h1>
+                    <h3>Phone</h3>
+                    <p>+48-722-750-618</p><br>
+                </div>
+                <div class="col-sm-4 col-xs-6 second-box" style="font-weight: bolder">
+                    <h1><a href="" ><i class="fa fa-address-card-o "></i></a></span></h1>
+                    <h3>Location</h3>
+                    <p>Warsaw, Poland, 01-355</p><br>
+                </div>
+                <div class="col-sm-4 col-xs-6 third-box" style="font-weight: bolder">
+                    <h1><a href="mailto:rajr971111@gmail.com"><i class="fa fa-envelope "></i></a></span></h1>
+                    <h3>E-mail</h3>
+                    <p>rajr971111@gmail.com</p><br>
+                </div>
+                <!--<div class="col-sm-3 col-xs-6 fourth-box">-->
+                    <!--<h1><i class="fa fa-facebook "></i></h1>-->
+                    <!--<h3>Web</h3>-->
+                    <!--<p>www.yourdomain.com</p><br>-->
+                <!--</div>-->
+                </div>
+             </div>
+
+
         <div class="row">
-            <div class="col-sm-6 mx-auto" style="margin-top: 70px">
+
+            <div class="col-sm-6 mx-auto" style="margin-top: 0px">
+
+
+
+
                 <form action="{% url 'contact' %}" method="post">
                     {% csrf_token %}
-                    <div class="form-group row">
-                        <label for="example-email-input" class="col-2 col-form-label">Email</label>
-                        <div class="col-10">
-                            <input name='email' class="form-control" type="email" id="example-email-input">
+                    <!--<div class="form-group row">-->
+                        <!--<label for="example-email-input" class="col-2 col-form-label">Email</label>-->
+                        <!--<div class="col-10">-->
+                            <!--<input name='email' class="form-control" type="email" id="example-email-input">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group row">-->
+                        <!--<label for="example-email-input" class="col-2 col-form-label">Subject</label>-->
+                        <!--<div class="col-10">-->
+                            <!--<input name='subject' class="form-control" type="text">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group row">-->
+                        <!--<label for="example-email-input" class="col-2 col-form-label">Message</label>-->
+                        <!--<div class="col-10">-->
+                            <!--<textarea name='message' class="form-control"></textarea>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <div class="form-row">
+
+                        <div class="form-group col-md-6">
+                          <label for="inputEmail4">First Name</label>
+                          <input type="text" name="fname" class="form-control" id="inputEmail4" placeholder="First Name">
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="example-email-input" class="col-2 col-form-label">Subject</label>
-                        <div class="col-10">
-                            <input name='subject' class="form-control" type="text">
+                        <div class="form-group col-md-6">
+                          <label for="inputPassword4">Last Name</label>
+                          <input type="text" name="lname" class="form-control" id="inputPassword4" placeholder="Last Name">
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="example-email-input" class="col-2 col-form-label">Message</label>
-                        <div class="col-10">
-                            <textarea name='message' class="form-control"></textarea>
+                      </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group col-md-6">
+                          <label for="inputEmail4">Email</label>
+                          <input type="email" name='email' class="form-control" id="inputEmail4" placeholder="Email">
+                            <div class="invalid-feedback">
+                                Looks good!
+                            </div>
                         </div>
-                    </div>
+                        <div class="form-group col-md-6">
+                          <label for="inputPhone">Phone</label>
+                          <input type="text" name="phone" class="form-control" id="inputPhone" placeholder="Password">
+                        </div>
+                        <div class="valid-feedback">
+                                Looks good!
+                        </div>
+
+                      </div>
+
+
+                      <div class="form-group">
+                        <label for="inputAddress">Subject</label>
+                        <input type="text" name='subject' class="form-control" id="inputAddress" placeholder="Subject ">
+                      </div>
+
+
+                      <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Message</label>
+                        <textarea name='message' class="form-control" id="exampleFormControlTextarea1"  placeholder="Message"></textarea>
+                      </div>
+
+
                     <div class="pull-right">
-                        <button type="submit" class="btn btn-primary float-right">Submit</button>
+                        <button type="submit" class="btn btn-primary btn-lg float-right " style="width: 200px;"><i class="fas fa-angle-double-right"> Send Us</i></button>
                     </div>
 
                 </form>
@@ -33,5 +150,8 @@
         </div>
 
     </div>
+             </div>
+</div>
+    </section>
 
 {% endblock %}

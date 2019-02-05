@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
-import django_heroku
+#import django_heroku
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'markdown_deux',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -79,6 +81,17 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+#
+# ENGINE': 'django.db.backends.mysql',
+#         'OPTIONS': {
+#              'sql_mode': 'traditional',
+#          },
+#          'NAME': 'root',
+#          'USER': 'personal_django',
+#          'PASSWORD': '',
+#          'HOST': 'localhost',
+#          'PORT': '3306',
     }
 }
 
@@ -120,4 +133,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-django_heroku.settings(locals())
+##django_heroku.settings(locals())
+
+#PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),'static_cdn')
+
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'media_cdn')
+MEDIA_URL = '/media/'
+
+STATIC_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]

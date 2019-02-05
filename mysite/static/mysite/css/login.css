@@ -1,0 +1,23 @@
+
+
+@media only screen and (max-width: 600px) {
+  #p{
+    /*background-color: #0f9d58;*/
+    letter-spacing: 2px;
+    text-align: justify;
+    width: 300px;
+
+    color: black;
+    font-weight: bold;
+
+  }
+  #carouselExampleSlidesOnly{
+    margin-top: 100px;
+
+
+  }
+  .col-xs-6 {
+    margin-top: 5px;
+  }
+  
+}
